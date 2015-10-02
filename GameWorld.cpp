@@ -47,6 +47,8 @@ GameWorld::GameWorld(int cx, int cy):
 
   double border = 30;
   m_pPath = new Path(5, border, border, cx-border, cy-border, true); 
+
+ /* oui oui */
   
   
   //setup the agents
