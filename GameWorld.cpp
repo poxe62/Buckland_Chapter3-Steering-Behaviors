@@ -48,11 +48,10 @@ GameWorld::GameWorld(int cx, int cy):
   double border = 30;
   m_pPath = new Path(5, border, border, cx-border, cy-border, true); 
 
- /* oui oui */
   
   
   //setup the agents
-  /*
+  
   for (int a=0; a<Prm.NumAgents; ++a)
   {
 
@@ -77,8 +76,8 @@ GameWorld::GameWorld(int cx, int cy):
 	if (a > 0) {
 		pVehicle->Steering()->OffsetPursuitOn(m_Vehicles[a - 1],Vector2D(3,3));
 		pVehicle->Steering()->SeparationOn();
-		pVehicle->Steering()->CohesionOn(); 
-		pVehicle->Steering()->AlignmentOn();
+		//pVehicle->Steering()->CohesionOn(); 
+		//pVehicle->Steering()->AlignmentOn();
 	}
 	
 	
@@ -93,19 +92,20 @@ GameWorld::GameWorld(int cx, int cy):
   
 #define SHOAL
 #ifdef SHOAL
-  m_Vehicles[Prm.NumAgents-1]->Steering()->FlockingOff();
-  m_Vehicles[Prm.NumAgents-1]->SetScale(Vector2D(10, 10));
-  m_Vehicles[Prm.NumAgents-1]->Steering()->WanderOn();
-  m_Vehicles[Prm.NumAgents-1]->SetMaxSpeed(70);
+  m_Vehicles[0]->Steering()->FlockingOff();
+  m_Vehicles[0]->SetScale(Vector2D(10, 10));
+  m_Vehicles[0]->Steering()->WanderOn();
+  m_Vehicles[0]->SetMaxSpeed(70);
 
-
+  /*
    for (int i=0; i<Prm.NumAgents-1; ++i)
   {
     m_Vehicles[i]->Steering()->EvadeOn(m_Vehicles[Prm.NumAgents-1]);
 
   }
-#endif
    */
+#endif
+   
 
  
   //create any obstacles or walls
