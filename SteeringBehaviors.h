@@ -73,6 +73,7 @@ private:
     hide               = 0x04000,
     flock              = 0x08000,
     offset_pursuit     = 0x10000,
+	humancontrol	   = 0x20000
   };
 
 private:
@@ -183,6 +184,8 @@ private:
 
       .......................................................*/
 
+  //this behavior moves the leader agent according to arrow keys down
+  Vector2D HumanControl();
 
   //this behavior moves the agent towards a target position
   Vector2D Seek(Vector2D TargetPos);
@@ -326,6 +329,11 @@ public:
   void HideOn(Vehicle* v){m_iFlags |= hide; m_pTargetAgent1 = v;}
   void OffsetPursuitOn(Vehicle* v1, const Vector2D offset){m_iFlags |= offset_pursuit; m_vOffset = offset; m_pTargetAgent1 = v1;}  
   void FlockingOn(){CohesionOn(); AlignmentOn(); SeparationOn(); WanderOn();}
+
+  //ajout contrôle par un humain
+  void HumanControlOn() { m_iFlags |= humancontrol; }
+  void HumanControlOff() { if (On(humancontrol)) m_iFlags ^= humancontrol; }
+  bool isHumanControlOn() { return On(humancontrol); }
 
   void FleeOff()  {if(On(flee))   m_iFlags ^=flee;}
   void SeekOff()  {if(On(seek))   m_iFlags ^=seek;}

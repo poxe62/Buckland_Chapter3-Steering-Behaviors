@@ -16,7 +16,7 @@ LeaderAgent::LeaderAgent(string controller, GameWorld* world,Vector2D position,d
 
 	//si le leader est controlé par un humain
 	else if(controller == "Human"){
-
+		this->Steering()->HumanControlOn();
 	}
 }
 
