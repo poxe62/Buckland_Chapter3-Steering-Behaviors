@@ -1,10 +1,14 @@
 #pragma once
 #include "Vehicle.h"
+
+using namespace std;
+
 class LeaderAgent :
 	public Vehicle
 {
 public:
-	LeaderAgent(GameWorld* world,
+	LeaderAgent(string controller,
+		GameWorld* world,
 		Vector2D position,
 		double rotation,
 		Vector2D velocity,

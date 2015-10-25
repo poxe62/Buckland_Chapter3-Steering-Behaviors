@@ -57,7 +57,7 @@ GameWorld::GameWorld(int cx, int cy) :
 	Vector2D SpawnPos = Vector2D(cx / 2.0 + RandomClamped()*cx / 2.0,
 		cy / 2.0 + RandomClamped()*cy / 2.0);
 
-	LeaderAgent* leader = new LeaderAgent(this,
+	LeaderAgent* leader = new LeaderAgent("IA",this,
 		SpawnPos,                 //initial position
 		RandFloat()*TwoPi,        //start rotation
 		Vector2D(0, 0),            //velocity
@@ -65,9 +65,21 @@ GameWorld::GameWorld(int cx, int cy) :
 		Prm.MaxSteeringForce,     //max force
 		Prm.MaxSpeed,             //max velocity
 		Prm.MaxTurnRatePerSecond, //max turn rate
-		Prm.VehicleScale);
+		Prm.VehicleScale);  //scale
 	m_Vehicles.push_back(leader);
 	m_pCellSpace->AddEntity(leader);
+
+	LeaderAgent* leader2 = new LeaderAgent("IA",this,
+		SpawnPos,                 //initial position
+		RandFloat()*TwoPi,        //start rotation
+		Vector2D(0, 0),            //velocity
+		Prm.VehicleMass,          //mass
+		Prm.MaxSteeringForce,     //max force
+		Prm.MaxSpeed,             //max velocity
+		Prm.MaxTurnRatePerSecond, //max turn rate
+		Prm.VehicleScale);  //scale
+	m_Vehicles.push_back(leader2);
+	m_pCellSpace->AddEntity(leader2);
 
 	/*
 #define SHOAL
@@ -111,7 +123,8 @@ GameWorld::GameWorld(int cx, int cy) :
 				Prm.MaxSteeringForce,     //max force
 				Prm.MaxSpeed,             //max velocity
 				Prm.MaxTurnRatePerSecond, //max turn rate
-				Prm.VehicleScale, leader);        //scale
+				Prm.VehicleScale, //scale
+				leader); 
 		}
 		if (nbrChaser > 0) {
 			ChaserAgent* chaser = new ChaserAgent(this,
@@ -122,7 +135,8 @@ GameWorld::GameWorld(int cx, int cy) :
 				Prm.MaxSteeringForce,     //max force
 				Prm.MaxSpeed,             //max velocity
 				Prm.MaxTurnRatePerSecond, //max turn rate
-				Prm.VehicleScale, m_Vehicles[nbrChaser - 1]);        //scale
+				Prm.VehicleScale, //scale
+				m_Vehicles[nbrChaser - 1]);
 
 			m_Vehicles.push_back(chaser);
 			m_pCellSpace->AddEntity(chaser);
