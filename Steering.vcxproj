@@ -141,6 +141,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ChaserAgent.cpp" />
+    <ClCompile Include="FlockingAgent.cpp" />
     <ClCompile Include="GameWorld.cpp">
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -196,6 +197,7 @@
     <ClInclude Include="..\Common\misc\CellSpacePartition.h" />
     <ClInclude Include="ChaserAgent.h" />
     <ClInclude Include="constants.h" />
+    <ClInclude Include="FlockingAgent.h" />
     <ClInclude Include="GameWorld.h" />
     <ClInclude Include="LeaderAgent.h" />
     <ClInclude Include="MovingEntity.h" />

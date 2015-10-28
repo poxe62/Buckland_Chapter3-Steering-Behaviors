@@ -11,7 +11,8 @@ ChaserAgent::ChaserAgent(GameWorld * world, Vector2D position, double rotation, 
 	this->offset = Vector2D(3, 3);
 
 	this->Steering()->OffsetPursuitOn(predecessor, offset);
-	this->Steering()->SeparationOn();
+	//this->Steering()->SeparationOn();
+
 }
 
 ChaserAgent::~ChaserAgent()

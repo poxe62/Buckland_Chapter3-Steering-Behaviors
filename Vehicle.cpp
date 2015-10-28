@@ -115,11 +115,12 @@ void Vehicle::Update(double time_elapsed)
 
 
 
-/**************************************************************/
-void Vehicle::UpdatePosition(double time_elapsed, bool up, bool down, bool left, bool right) {
+/*************************              UpdateManualControl pour le contrôle manuel avec les flèches directionnelles        *************************************/
+/////////////////////////////
+void Vehicle::UpdateManualControl(double time_elapsed, bool up, bool down, bool left, bool right) {
 	//update the time elapsed
 	m_dTimeElapsed = time_elapsed;
-	int strengh = 5;
+	int strengh = 30;
 
 	//keep a record of its old position so we can update its cell later
 	//in this method
@@ -176,6 +177,9 @@ void Vehicle::UpdatePosition(double time_elapsed, bool up, bool down, bool left,
 	{
 		m_vSmoothedHeading = m_pHeadingSmoother->Update(Heading());
 	}
+
+	/////////////////
+	/**********************         Fin UpdateManualControl             **************************/
 
 
 }

@@ -81,7 +81,8 @@ public:
   //updates the vehicle's position and orientation
   void        Update(double time_elapsed);
 
-  void UpdatePosition(double time_elapsed, bool up, bool down, bool left, bool right);
+  //update the vehicle's position and orientation when it's controlled by an human
+  void UpdateManualControl(double time_elapsed, bool up, bool down, bool left, bool right);
 
   void        Render();
 
