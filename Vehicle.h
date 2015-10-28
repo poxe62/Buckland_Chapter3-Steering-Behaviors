@@ -81,6 +81,8 @@ public:
   //updates the vehicle's position and orientation
   void        Update(double time_elapsed);
 
+  void UpdatePosition(double time_elapsed, bool up, bool down, bool left, bool right);
+
   void        Render();
 
                                                                           
@@ -95,6 +97,8 @@ public:
   void        SmoothingOn(){m_bSmoothingOn = true;}
   void        SmoothingOff(){m_bSmoothingOn = false;}
   void        ToggleSmoothing(){m_bSmoothingOn = !m_bSmoothingOn;}
+
+
   
   double       TimeElapsed()const{return m_dTimeElapsed;}
  

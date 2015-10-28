@@ -13,10 +13,11 @@
 
 #include <stdio.h>
 #include <conio.h>
+#include <iostream>
 
 #include <cassert>
 
-
+using namespace std;
 using std::string;
 using std::vector;
 
@@ -688,69 +689,6 @@ Vector2D SteeringBehavior::CalculateDithered()
 
 
 /////////////////////////////////////////////////////////////////////////////// START OF BEHAVIORS
-
-
-//------------------------------Human Control----------------------------  
-//
-//    Le leader est contrôlé par un humain
-//    avec les flèches directionnelles
-//-----------------------------------------------------------------------
-//------------------------------Human Control----------------------------  
-Vector2D SteeringBehavior::HumanControl() {
-	//this behavior is dependent on the update rate, so this line must
-	//be included when using time independent framerate.
-	double JitterThisTimeSlice = m_dWanderJitter * m_pVehicle->TimeElapsed();
-
-	char keyDown = getch();
-
-
-	//flèche gauche
-	if (keyDown == 75) {
-
-	}
-	//flèche droite
-	else if (keyDown == 77) {
-
-	}
-	//flèche haut
-	if (keyDown == 72) {
-
-	}
-	//flèche bas
-	else if (keyDown == 80) {
-
-	}
-
-	/*
-	//first, add a small random vector to the target's position
-	m_vWanderTarget += Vector2D(RandomClamped() * JitterThisTimeSlice,
-		RandomClamped() * JitterThisTimeSlice);
-
-	//reproject this new vector back on to a unit circle
-	m_vWanderTarget.Normalize();
-
-	//increase the length of the vector to the same as the radius
-	//of the wander circle
-	m_vWanderTarget *= m_dWanderRadius;
-	*/
-
-
-
-	//move the target into a position WanderDist in front of the agent
-	Vector2D target = m_vWanderTarget + Vector2D(m_dWanderDistance, 0);
-
-	//project the target into world space
-	Vector2D Target = PointToWorldSpace(target,
-		m_pVehicle->Heading(),
-		m_pVehicle->Side(),
-		m_pVehicle->Pos());
-
-	//and steer towards it
-	return Target - m_pVehicle->Pos();
-
-
-}
-
 
 
 

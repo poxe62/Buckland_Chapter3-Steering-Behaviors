@@ -184,9 +184,6 @@ private:
 
       .......................................................*/
 
-  //this behavior moves the leader agent according to arrow keys down
-  Vector2D HumanControl();
-
   //this behavior moves the agent towards a target position
   Vector2D Seek(Vector2D TargetPos);
 
