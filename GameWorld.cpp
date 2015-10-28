@@ -57,7 +57,7 @@ GameWorld::GameWorld(int cx, int cy) :
 
 
 	/*********************         Set leaders and chasers       ***************/
-	/*
+
 	//setup the leader(s)
 	//Set "IA" for having an IA, "Human" for controlling the airship wih arrow keys
 	
@@ -126,15 +126,15 @@ GameWorld::GameWorld(int cx, int cy) :
 		}
 
 	}
-	*/
+	
 
 	/*********************    End set up Leaders and chasers   ****************************/
 
 	
 
 	/************************      Set flocking    ************************************/
-	
-	for (int nbrChaser = 0; nbrChaser < Prm.NumAgents; ++nbrChaser)
+	/*
+	for (int nbrFlockingAgents = 0; nbrFlockingAgents < Prm.NumAgents; ++nbrFlockingAgents)
 	{
 
 		//determine a random starting position
@@ -154,7 +154,7 @@ GameWorld::GameWorld(int cx, int cy) :
 		m_Vehicles.push_back(fa);
 		m_pCellSpace->AddEntity(fa);
 	}
-	
+	*/
 	/***************************          Fin flocking        ***********************************/
 
 	
